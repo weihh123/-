@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main()
+{
+    int n,a,s,sum= 0,i=0,arr[1000]={0};
+    scanf("%d",&n);
+    while(i<=n)
+    {
+        scanf("%c",&a);
+        arr[a]++;
+        sum++;
+        if(a=='\n')
+        {
+            i++;
+        }
+    }
+    arr[10]=0;
+    arr[32]=0;
+    for(i=0;i<1000;i++)
+    {
+        if(arr[i]>0)
+        {
+            s++;
+        }
+    }
+    printf("%d\n",s);
+    for(i=0;i<1000;i++)
+    {
+        if(arr[i]>0)
+        {
+            printf("%c %d\n",i,arr[i]);
+        }
+    }
+    return 0;
+}
