@@ -1,0 +1,32 @@
+/*
+#include <stdio.h>
+*/
+
+int GCD3(int a,int b,int c)
+{
+    
+    while (b != 0) 
+    {
+        int temp = b;
+        b = a % b;  // 將 a 除以 b 的餘數賦值給 b
+        a = temp;   // 將 b 的值賦給 a
+    }
+    int n=a;
+    while (n != 0) 
+    {
+        int temp = n;
+        n = c % n;  // 將 a 除以 b 的餘數賦值給 b
+        c = temp;   // 將 b 的值賦給 a
+    }
+    return c;
+}
+
+/*
+int main(void)
+{
+    int x,y,z;
+    while(scanf("%d %d %d",&x,&y,&z)!=EOF)
+        printf("%d\n",GCD3(x,y,z));
+    }
+}
+*/
