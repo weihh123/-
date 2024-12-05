@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main()
+{
+    int k, d, p, o, v, u;//k總數
+    char b[] = {0};
+    char f[] = {0};
+    scanf("%d\n", &k);
+    for(int r = 0; r < k; r++)
+    {
+        scanf("%d ", &d);
+        b[d]++;
+    }
+    printf("\n");
+    while(scanf("%d %d", &p, &o) != EOF)
+    {
+        for(v = b[d] ; v > p && v < o; v++)//problems
+        {
+            f[v]++;
+            if(f[v] == 1)
+            {
+                u++;
+            }
+        }
+        printf("%d", u);
+    }
+    return 0;
+}
