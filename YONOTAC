@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main()
+{
+    int n, ans, arr[100][2];
+    while(scanf("%d", &n)!=EOF)
+    {
+        int a[100]={0};
+        for(int i = 0; i < n; i++)
+        {
+            scanf("%d %d", &arr[i][0], &arr[i][1]);
+            a[i]=i;
+        }
+        ans = 0;
+        for(int i = 0; i < n; i++)
+        {
+            if(arr[i][0] > 0)
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    if(i==j)
+                    {
+                        continue;
+                    }
+                    else if(arr[i][0] == arr[j][1] && arr[i][1] == arr[j][0])
+                    {
+                        ans++;
+                        a[i]=a[j];
+                        printf("%d\n",j);
+                        arr[i][0]=-1;
+                        arr[i][1]=-1;
+                        arr[j][0]=-1;
+                        arr[j][1]=-1;
+                        break;
+                    }
+                    else
+                    {
+                        printf("-1");
+                        printf("\n");
+                        break;
+                    }
+                }
+            }
+        }
+        printf("Success %d\n", ans);
+    }
+    return 0;
+}
