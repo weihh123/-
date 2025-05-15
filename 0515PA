@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int n,cases = 0;
+    char s[200],arr[200];
+    while(scanf("%d",&n)!=EOF)
+    {
+            int ret = 0;
+            int cnt[200]={0};
+            int mcnt[200]={0};
+            int ct = 0;
+            int same = 0;
+            int p = 0;
+            scanf("%s",arr);
+            for(int j = 0;arr[j];j++)
+            {
+                cnt[(int)arr[j]]++;
+            }
+            for(int j = 'a'; j <= 'z'; j++)
+            {
+                if(cnt[j])
+                {
+                    if(mcnt[cnt[j]]>0)
+                    {
+                        same = 1;
+                    }
+                    mcnt[cnt[j]]++;
+                    ct++;
+                }
+            }
+            if(ct > 1 && same == 0)
+            {
+                ret++;
+            }
+        for(int i = 1; i < n; i++)
+        {
+            int cnt[200]={0};
+            int mcnt[200]={0};
+            int ct = 0;
+            int same = 0;
+            int p = 0;
+            scanf("%s",s);
+            for(int j = 0;s[j];j++)
+            {
+                cnt[(int)s[j]]++;
+            }
+            for(int j = 'a'; j <= 'z'; j++)
+            {
+                if(cnt[j])
+                {
+                    if(mcnt[cnt[j]]>0)
+                    {
+                        same = 1;
+                    }
+                    mcnt[cnt[j]]++;
+                    ct++;
+                }
+            }
+            if(ct > 1 && same == 0)
+            {
+                ret++;
+            }
+        }
+        printf("Case %d: %d\n",++cases,ret);
+        if(ret>0)
+        {
+            printf("%s\n",arr);
+        }
+    }
+}
