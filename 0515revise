@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int n, cases = 0;
+    char s[10000];
+    char cool_words[10000][35]; // 最多10000個字，每個最多30字母 + null
+    while (scanf("%d", &n) != EOF) {
+        int ret = 0;
+        int word_index = 0;
+        for (int i = 0; i < n; i++) {
+            int cnt[256] = {0};
+            int mcnt[100] = {0};  // 最大長度是30，所以頻率不會超過30
+            int ct = 0;
+            int same = 0;
+            scanf("%s", s);
+            int len = strlen(s);
+            for (int j = 0; j < len; j++) {
+                cnt[(int)s[j]]++;
+            }
+            for (int j = 'a'; j <= 'z'; j++) {
+                if (cnt[j]) {
+                    if (mcnt[cnt[j]] > 0) {
+                        same = 1;
+                    }
+                    mcnt[cnt[j]]++;
+                    ct++;
+                }
+            }
+            if (ct > 1 && same == 0) {
+                strcpy(cool_words[word_index++], s);
+                ret++;
+            }
+        }
+        printf("Case %d: %d\n", ++cases, ret);
+        for (int i = 0; i < ret; i++) 
+        {
+            printf("%s\n", cool_words[i]);
+        }
+    }
+    return 0;
+}
